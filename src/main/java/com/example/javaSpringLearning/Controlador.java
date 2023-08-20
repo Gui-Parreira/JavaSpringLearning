@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,12 +17,12 @@ public class Controlador {
    @Qualifier("servicoConf")
    private ServicoI servicoConf;
 
-    @GetMapping("pessoa/{id}/{codigo}")
+    @PostMapping("pessoa/{id}/{codigo}")
     public String test(@PathVariable String id, @PathVariable String codigo) {
         return servicoTeste.exibir(id, codigo);
     }
 
-    @GetMapping("teste/{id}/{codigo}")
+    @PostMapping("teste/{id}/{codigo}")
     public String testezada(@PathVariable String id, @PathVariable String codigo) {
         return servicoConf.exibir(id, codigo);
     }
